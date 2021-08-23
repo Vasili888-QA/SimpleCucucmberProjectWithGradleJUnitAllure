@@ -7,6 +7,7 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
+import static com.codeborne.selenide.Selectors.byTitle;
 import static com.codeborne.selenide.Selenide.$;
 
 public class GeneralPage {
@@ -27,5 +28,9 @@ public class GeneralPage {
     public void googleMainPageIsOpen() {
         //Selenide.sleep(3000);
         Selenide.$x("//img[@alt='Google']").shouldBe(visible, Duration.ofMillis(10000));
+    }
+
+    public void stepIsFail() {
+        $(byTitle("Главная страница Google-brokenXPath")).shouldBe(visible);
     }
 }

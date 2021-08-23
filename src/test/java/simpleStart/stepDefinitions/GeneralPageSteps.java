@@ -1,7 +1,12 @@
 package simpleStart.stepDefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+import org.junit.jupiter.api.DisplayName;
 import simpleStart.pages.GeneralPage;
 import io.cucumber.java.en.Given;
 import org.junit.jupiter.api.Test;
@@ -27,5 +32,10 @@ public class GeneralPageSteps {
     @Then("Google main page is open")
     public void googleMainPageIsOpen() {
         generalPage.googleMainPageIsOpen();
+    }
+
+    @And("Step is fail")
+    public void stepIsFail() {
+        generalPage.stepIsFail();
     }
 }
