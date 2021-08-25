@@ -17,7 +17,7 @@ public class Hooks {
 
 //  Just to show some configuration examples
 //        Configuration.headless = true;
-//        Configuration.baseUrl = "www.example.com";
+        Configuration.baseUrl = "https://www.google.com/";
 //        Configuration.browser = "firefox";
 //        Configuration.downloadsFolder = "src/test/resources/download";
 
