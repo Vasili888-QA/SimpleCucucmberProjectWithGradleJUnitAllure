@@ -6,6 +6,7 @@ import io.qameta.allure.Story;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 
 import java.time.Duration;
 
@@ -17,8 +18,8 @@ import static com.codeborne.selenide.Selenide.*;
 @Epic("Some Epic")
 @Feature("Feature On Allure - Tests with some action on Google Site")
 public class SearchTests {
-    //Run on Terminal command -> gradle clean test
-
+    //  Run on Terminal command -> gradle clean test
+    //  gradle clean test -Dselenide.baseUrl='https://www.google.com/' ещё в build.gradle eго прописать
 
     @Test
     @Story("Story-1 on Allure")
@@ -43,19 +44,19 @@ public class SearchTests {
 
         //ХPath locator->
         //Selenide.$x("//a[@id='logo']").click();
-        //Selenide.$(By.xpath("//a[@id='logo']")).click();
+        Selenide.$(By.xpath("//a[@id='logo'] | //div[contains(@class,'logo')]//a[contains(@href,'https://www.google.com')]")).click();
 
         //CSS-selector
         //$("#logo").click();
 
         //по атрибуту
         //$(by("id","logo")).click();
-        $(by("title", "Главная страница Google")).click();
+        //$(by("title", "Главная страница Google")).click();
 
         //через атрибут title, если тест падает то нужно добавить кодировку UTF-8 в build.gradle
         //$(byTitle("Главная страница Google")).click();
 
         //Selenide.sleep(3000);
-        Selenide.$x("//img[@alt='Google-brokenXPath']").shouldBe(visible, Duration.ofMillis(5000));
+        Selenide.$x("//img[@alt='Google'] | //div[contains(@id,'logo')]").shouldBe(visible, Duration.ofMillis(5000));
     }
 }

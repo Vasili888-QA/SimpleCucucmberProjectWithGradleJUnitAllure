@@ -17,7 +17,7 @@ public class SearchPage {
 
         //ХPath locator->
         //Selenide.$x("//a[@id='logo']").click();
-        Selenide.$(By.xpath("//a[@id='logo']")).click();
+        Selenide.$(By.xpath("//a[@id='logo'] | //div[contains(@class,'logo')]//a[contains(@href,'https://www.google.com')]")).click();
 
         //CSS-selector
         //$("#logo").click();
