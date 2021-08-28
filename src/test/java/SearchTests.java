@@ -14,23 +14,29 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
+import static io.qameta.allure.Allure.step;
 
 @Epic("Some Epic")
 @Feature("Feature On Allure - Tests with some action on Google Site")
 public class SearchTests {
     //  Run on Terminal command -> gradle clean test
-    //  gradle clean test -Dselenide.baseUrl='https://www.google.com/' ещё в build.gradle eго прописать
 
     @Test
     @Story("Story-1 on Allure")
     @DisplayName("DisplayName on Allure - Description1")
     void selenideSearchTest() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        open("https://www.google.com/");
+        step("Open google main page", () -> {
+            open("https://www.google.com/");
+        });
 
-        $(byName("q")).setValue("selenide").pressEnter();
+        step("Enter search request \"selenide\" in the search field", () -> {
+            $(byName("q")).setValue("selenide").pressEnter();
+        });
 
-        $("#search").shouldHave(text("selenide.org"));
+        step("Search page is open and selenide.org is appeared", () -> {
+            $("#search").shouldHave(text("selenide.org"));
+        });
     }
 
     @Test
@@ -44,7 +50,9 @@ public class SearchTests {
 
         //ХPath locator->
         //Selenide.$x("//a[@id='logo']").click();
-        Selenide.$(By.xpath("//a[@id='logo'] | //div[contains(@class,'logo')]//a[contains(@href,'https://www.google.com')]")).click();
+        step("Click on logo on the left corner", () -> {
+            Selenide.$(By.xpath("//a[@id='logo'] | //div[contains(@class,'logo')]//a[contains(@href,'https://www.google.com')]")).click();
+        });
 
         //CSS-selector
         //$("#logo").click();
@@ -57,6 +65,8 @@ public class SearchTests {
         //$(byTitle("Главная страница Google")).click();
 
         //Selenide.sleep(3000);
-        Selenide.$x("//img[@alt='Google'] | //div[contains(@id,'logo')]").shouldBe(visible, Duration.ofMillis(5000));
+        step("Main page is open and Google logo is appeared", () -> {
+            Selenide.$x("//img[@alt='Google'] | //div[contains(@id,'logo')]").shouldBe(visible, Duration.ofMillis(5000));
+        });
     }
 }

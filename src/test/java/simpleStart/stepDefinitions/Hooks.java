@@ -16,8 +16,9 @@ public class Hooks {
         //SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(false).savePageSource(false));
 
 //  Just to show some configuration examples
-//        Configuration.headless = true;
         Configuration.baseUrl = "https://www.google.com/";
+//        Configuration.headless = true;
+//        Configuration.pageLoadStrategy = eager; // https://selenide.org/javadoc/current/com/codeborne/selenide/Configuration.html#pageLoadStrategy
 //        Configuration.browser = "firefox";
 //        Configuration.downloadsFolder = "src/test/resources/download";
 
