@@ -38,4 +38,19 @@ public class GeneralPageSteps {
     public void stepIsFail() {
         generalPage.stepIsFail();
     }
+
+    @Given("Open DemoQA site on main page with endpoint {string}")
+    public void openDemoQASiteOnMainPageWithEndpoint(String endpoint) {
+        generalPage.openDemoQASite(endpoint);
+    }
+
+    @And("Main page DemoQA is open")
+    public void mainPageDemoQAIsOpen() {
+        generalPage.mainPageDemoQAOpened();
+    }
+
+    @When("I click to card {string}")
+    public void iClickToCard(String cardName) {
+        generalPage.iClickToCard(cardName);
+    }
 }

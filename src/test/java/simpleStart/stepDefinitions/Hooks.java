@@ -9,7 +9,7 @@ public class Hooks {
     @Before
     public void start(){
        // Configuration.startMaximized = true;
-        Configuration.browserSize = "1380x850";
+        Configuration.browserSize = "1380x1050";
 //        Configuration.timeout = 5000;
         Configuration.webdriverLogsEnabled = true;
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
